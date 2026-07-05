@@ -24,7 +24,9 @@
     margin: 0;
     padding: 40px;
     /* BUG: card is not centered - missing flex/justify-content on body */
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .card {
@@ -32,17 +34,17 @@
     height: 320px;
     background: #ffffff;
     border: 2px solid #dfe1e6;
-    border-radius: 6px; /* BUG: should be 16px per spec */
+    border-radius: 16px; /* BUG: should be 16px per spec */
     padding: 24px;
     box-sizing: border-box;
-    text-align: left; /* BUG: should be centered */
+    text-align: center; /* BUG: should be centered */
   }
 
   .avatar {
     width: 90px;
     height: 90px;
     background: #0f3460;
-    border-radius: 8px; /* BUG: should be 50% to make it a circle */
+    border-radius: 50%; /* BUG: should be 50% to make it a circle */
     color: #fff;
     display: flex;
     align-items: center;
@@ -78,7 +80,7 @@
     height: 44px;
     line-height: 44px;
     text-align: center;
-    background: #7a5fb0; /* BUG: wrong shade, spec wants #533483 */
+    background: #533483; /* BUG: wrong shade, spec wants #533483 */
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -86,7 +88,12 @@
     margin: 20px auto 0 auto;
     cursor: pointer;
     /* BUG: no :hover state defined below */
+    transition: background 0.15s ease
   }
+
+  .btn:hover {
+    background: #3f2764; /* BUG: should be the darker shade on hover */
+  } 
 </style>
 </head>
 <body>
@@ -96,6 +103,7 @@
     <div class="name">Ayesha Khan</div>
     <div class="role">Product Designer</div>
     <!-- BUG: divider is missing here, should be <hr class="divider"> -->
+    <hr class="divider">
     <button class="btn">View Profile</button>
   </div>
 
